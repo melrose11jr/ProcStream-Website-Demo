@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    
+    --brand: 210 100% 50%;
+    --brand-foreground: 213 100% 60%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --brand: 213 100% 60%;
+    --brand-foreground: 210 100% 50%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+  }
+}
+
+
+
+  
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+/* Animations */
+@layer utilities {
+  .animate-appear {
+    animation: appear 0.5s ease-out forwards;
+  }
+  
+  .animate-appear-zoom {
+    animation: appear-zoom 0.8s ease-out forwards;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground/90 to-muted-foreground;
+  }
+}
+
+@keyframes appear {
+  0% { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes appear-zoom {
+  0% { 
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
